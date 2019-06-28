@@ -1,0 +1,208 @@
+/* vue-drawer
+  ----------------------*/
+.vue-drawer {
+    position: fixed;
+    z-index: 1000;
+    width: 0%;
+    height: 100%;
+}
+
+.vue-drawer--left,
+.vue-drawer--right {
+    top: 0;
+    width: 0%;
+    height: 100%;
+}
+
+.vue-drawer--left {
+    left: 0;
+}
+
+.vue-drawer--right {
+    right: 0;
+}
+
+.vue-drawer--left.vue-drawer--open,
+.vue-drawer--right.vue-drawer--open {
+    width: 100%;
+}
+
+.vue-drawer--top,
+.vue-drawer--bottom {
+    left: 0;
+    width: 100%;
+    height: 0;
+}
+
+.vue-drawer--top {
+    top: 0;
+}
+
+.vue-drawer--bottom {
+    bottom: 0;
+}
+
+.vue-drawer--top.vue-drawer--open,
+.vue-drawer--bottom.vue-drawer--open {
+    height: 100%;
+}
+
+.vue-drawer--right {
+    right: 0;
+}
+
+/* mask
+----------------------*/
+.vue-drawer-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    opacity: 0;
+    filter: alpha(opacity=50);
+    transition: opacity .3s linear,height 0s ease .3s;
+}
+
+.vue-drawer.vue-drawer--open .vue-drawer-mask {
+    height: 100%;
+    opacity: .3;
+    transition: none;
+    animation: fadeIn .3s cubic-bezier(.7, .3, .1, 1);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: .3;
+    }
+}
+
+/* content-wrapper
+----------------------*/
+.vue-drawer-content-wrapper {
+    position: fixed;
+    transition: transform .3s cubic-bezier(.9, 0, .3, .7),box-shadow .3s cubic-bezier(.9, 0, .3, .7);
+}
+
+.vue-drawer--right .vue-drawer-content-wrapper {
+    right: 0;
+    transform: translateX(100%);
+}
+
+.vue-drawer--open.vue-drawer--right .vue-drawer-content-wrapper {
+    transform: translateX(0);
+}
+
+.vue-drawer--top .vue-drawer-content-wrapper {
+    top: 0;
+    transform: translateY(-100%);
+}
+
+.vue-drawer--open.vue-drawer--top .vue-drawer-content-wrapper {
+    transform: translateY(0);
+}
+
+.vue-drawer--bottom .vue-drawer-content-wrapper {
+    bottom: 0;
+    transform: translateY(100%);
+}
+
+.vue-drawer--open.vue-drawer--bottom .vue-drawer-content-wrapper {
+    transform: translateY(0);
+}
+
+.vue-drawer--left .vue-drawer-content-wrapper {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.vue-drawer--open.vue-drawer--left .vue-drawer-content-wrapper {
+    transform: translateY(0);
+}
+
+.vue-drawer--top.vue-drawer--open .vue-drawer-content-wrapper {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.vue-drawer--bottom.vue-drawer--open .vue-drawer-content-wrapper {
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+}
+
+.vue-drawer--right.vue-drawer--open .vue-drawer-content-wrapper {
+    box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+}
+
+.vue-drawer--left.vue-drawer--open .vue-drawer-content-wrapper {
+    box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+}
+
+.vue-drawer--left .vue-drawer-content-wrapper,
+.vue-drawer--right .vue-drawer-content-wrapper {
+    height: 100%;
+}
+
+.vue-drawer--top .vue-drawer-content-wrapper,
+.vue-drawer--bottom .vue-drawer-content-wrapper {
+    width: 100%;
+}
+
+/* content
+----------------------*/
+.vue-drawer .vue-drawer-content {
+    overflow: auto;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 0;
+}
+
+/* header
+----------------------*/
+.vue-drawer__header {
+    position: relative;
+    padding: 16px 24px;
+    color: rgba(0,0,0,0.65);
+    background: #fff;
+    border-bottom: 1px solid #e8e8e8;
+    border-radius: 4px 4px 0 0;
+}
+.vue-drawer__header .vue-drawer-title {
+    margin: 0;
+    color: rgba(0,0,0,0.85);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+/* body
+----------------------*/
+.vue-drawer__body {
+    flex: 1;
+    padding: 24px;
+    font-size: 14px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.vue-drawer.vue-drawer--header-footer-fixed .vue-drawer__body{
+    overflow: auto;
+}
+
+/* footer
+----------------------*/
+.vue-drawer__footer {
+    border-top: 1px solid rgb(232, 232, 232);
+    padding: 10px 16px;
+    text-align: right;
+    background: rgb(255, 255, 255);
+    border-radius: 0px 0px 4px 4px;
+}

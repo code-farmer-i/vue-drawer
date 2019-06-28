@@ -1,0 +1,21 @@
+{
+  "name": "vue-drawer-component",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node webpack.build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/code-farmer-i/el-table-editabled"
+  },
+  "author": "",
+  "license": "ISC",
+  "_from": "el-table-editabled@1.0.17",
+  "_resolved": "https://registry.npm.taobao.org/el-table-editabled/download/el-table-editabled-1.0.17.tgz"
+}
